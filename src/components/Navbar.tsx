@@ -103,7 +103,7 @@ export default function Navbar() {
             href={cvFile}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-[var(--muted)] transition-colors duration-200 hover:text-[var(--accent)]"
+            className="font-mono text-xs text-[var(--accent)] border border-[var(--accent)] rounded px-3 py-1.5 transition-all duration-200 hover:bg-[var(--accent)]/10 hover:shadow-[0_0_12px_rgba(59,130,246,0.15)]"
           >
             {t('downloadCV')}
           </a>
@@ -167,7 +167,7 @@ export default function Navbar() {
                 href={cvFile}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
+                className="font-mono text-xs text-[var(--accent)] border border-[var(--accent)] rounded px-3 py-1.5 transition-all duration-200 hover:bg-[var(--accent)]/10"
               >
                 {t('downloadCV')}
               </a>

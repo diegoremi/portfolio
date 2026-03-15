@@ -25,7 +25,12 @@ export default function Projects() {
               className="group overflow-hidden rounded-sm border border-[var(--border)] bg-[var(--card)] transition-colors duration-200 hover:border-[var(--accent)]/30"
             >
               {p.image && (
-                <div className="relative aspect-[16/9] overflow-hidden">
+                <a
+                  href={p.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block aspect-[16/9] overflow-hidden"
+                >
                   <Image
                     src={p.image}
                     alt={t(`${p.id}.title`)}
@@ -34,7 +39,7 @@ export default function Projects() {
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-[var(--background)]/10 transition-opacity duration-300 group-hover:opacity-0" />
-                </div>
+                </a>
               )}
 
               <div className="px-5 py-5 sm:px-6">

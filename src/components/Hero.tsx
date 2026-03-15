@@ -48,7 +48,7 @@ export default function Hero() {
 
         <div className="mt-8 flex items-center gap-5">
           <a
-            href="https://linkedin.com/in/diegoremicio"
+            href="https://www.linkedin.com/in/diego-remicio/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--muted)] transition-colors duration-200 hover:text-[var(--foreground)]"

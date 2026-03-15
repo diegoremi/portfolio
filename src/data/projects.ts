@@ -13,12 +13,14 @@ export const projects: ProjectItem[] = [
     techs: ['Next.js', 'Prisma', 'NextAuth', 'Resend'],
     featured: true,
     image: '/clavedetuser.png',
+    liveUrl: 'https://www.clavedetuser.com/',
   },
   {
     id: 'cgestiona',
     techs: ['React', 'Vite', 'Markdown', 'Decap CMS', 'Netlify'],
     featured: true,
     image: '/cgestiona.png',
+    liveUrl: 'https://cgestiona.com/',
   },
   {
     id: 'aiMath',
