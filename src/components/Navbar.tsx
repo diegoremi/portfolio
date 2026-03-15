@@ -7,6 +7,10 @@ import ThemeToggle from './ThemeToggle';
 
 const sections = ['about', 'experience', 'skills', 'projects', 'contact'] as const;
 
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 export default function Navbar() {
   const t = useTranslations('nav');
   const locale = useLocale();
@@ -20,7 +24,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Scroll spy: track which section is currently in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -43,50 +46,53 @@ export default function Navbar() {
 
   const cvFile = `/cv/Diego_Remicio_CV_${locale.toUpperCase()}.pdf`;
 
-  function handleNav(id: string) {
+  function handleNav(e: React.MouseEvent, id: string) {
+    e.preventDefault();
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({
+      behavior: prefersReducedMotion() ? 'instant' : 'smooth',
+    });
   }
 
   return (
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[var(--background)]/95 backdrop-blur-md shadow-sm'
-          : 'bg-[var(--background)]'
-      } border-b border-[var(--border)]`}
+          ? 'bg-[var(--background)]/90 backdrop-blur-lg border-b border-[var(--border)]'
+          : 'bg-transparent'
+      }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4 sm:px-8">
         {/* Logo */}
         <button
           onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+              top: 0,
+              behavior: prefersReducedMotion() ? 'instant' : 'smooth',
+            });
             setActive('');
           }}
-          className="text-lg font-bold text-[var(--foreground)] tracking-tight transition-colors hover:text-[var(--accent)]"
+          className="font-mono text-sm font-bold text-[var(--foreground)] tracking-tight transition-colors hover:text-[var(--accent)]"
         >
-          DR
+          DR.
         </button>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-6 md:flex">
-          {sections.map((s) => (
+        <ul className="hidden items-center gap-7 md:flex">
+          {sections.map((s, i) => (
             <li key={s}>
-              <button
-                onClick={() => handleNav(s)}
-                className={`relative pb-1 text-sm transition-colors ${
+              <a
+                href={`#${s}`}
+                onClick={(e) => handleNav(e, s)}
+                className={`relative text-sm transition-colors duration-200 ${
                   active === s
-                    ? 'text-[var(--foreground)] font-medium'
+                    ? 'text-[var(--accent)]'
                     : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                 }`}
               >
+                <span className="font-mono text-xs text-[var(--accent)]">0{i + 1}.</span>{' '}
                 {t(s)}
-                <span
-                  className={`absolute bottom-0 left-0 h-0.5 rounded-full bg-[var(--accent)] transition-all duration-300 ${
-                    active === s ? 'w-full' : 'w-0'
-                  }`}
-                />
-              </button>
+              </a>
             </li>
           ))}
         </ul>
@@ -97,10 +103,11 @@ export default function Navbar() {
             href={cvFile}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm text-[var(--muted)] transition-all duration-200 hover:text-[var(--foreground)] hover:border-[var(--foreground)]"
+            className="font-mono text-xs text-[var(--muted)] transition-colors duration-200 hover:text-[var(--accent)]"
           >
             {t('downloadCV')}
           </a>
+          <span className="text-[var(--border)]">|</span>
           <LanguageSwitcher />
           <ThemeToggle />
         </div>
@@ -114,12 +121,12 @@ export default function Navbar() {
             aria-label={open ? t('closeMenu') : t('openMenu')}
           >
             {open ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="3" y1="12" x2="21" y2="12" />
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <line x1="3" y1="18" x2="21" y2="18" />
@@ -129,27 +136,29 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu — animated height */}
+      {/* Mobile menu */}
       <div
         className={`grid transition-[grid-template-rows] duration-300 ease-out md:hidden ${
           open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         }`}
       >
         <div className="overflow-hidden">
-          <div className="border-t border-[var(--border)] bg-[var(--background)] px-4 pb-4">
-            <ul className="flex flex-col gap-3 pt-3">
-              {sections.map((s) => (
+          <div className="border-t border-[var(--border)] bg-[var(--background)] px-6 pb-4">
+            <ul className="flex flex-col gap-1 pt-3">
+              {sections.map((s, i) => (
                 <li key={s}>
-                  <button
-                    onClick={() => handleNav(s)}
-                    className={`text-sm transition-colors ${
+                  <a
+                    href={`#${s}`}
+                    onClick={(e) => handleNav(e, s)}
+                    className={`block py-2 text-sm transition-colors ${
                       active === s
-                        ? 'text-[var(--foreground)] font-medium'
+                        ? 'text-[var(--accent)]'
                         : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                     }`}
                   >
+                    <span className="font-mono text-xs text-[var(--accent)]">0{i + 1}.</span>{' '}
                     {t(s)}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -158,7 +167,7 @@ export default function Navbar() {
                 href={cvFile}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+                className="font-mono text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
               >
                 {t('downloadCV')}
               </a>

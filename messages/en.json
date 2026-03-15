@@ -11,7 +11,8 @@
     "contact": "Contact",
     "downloadCV": "Download CV",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
   },
   "hero": {
     "name": "Diego Remicio",
@@ -28,7 +29,8 @@
     "title": "About",
     "p1": "I\u2019m a Senior Angular/TypeScript engineer with 9+ years building enterprise-grade web applications. I\u2019ve worked on pilot operations platforms at United Airlines, financial tools at JPMorgan, and CRM systems at WeightWatchers \u2014 always focused on authentication architecture (OAuth/OIDC), UI performance at scale, and shared component libraries that serve multi-team platforms.",
     "p2": "I accelerate delivery through AI-augmented development (Claude Code, Cursor, Copilot) while maintaining the architectural judgment AI tools can\u2019t replace. My thesis project integrated LLM APIs into an educational platform with controlled prompts and A/B feature gating.",
-    "p3": "Currently based in S\u00e3o Paulo, Brazil. Trilingual: Spanish (native), English (advanced), Portuguese (professional)."
+    "p3": "Currently based in S\u00e3o Paulo, Brazil. Trilingual: Spanish (native), English (advanced), Portuguese (professional).",
+    "photoAlt": "Diego Remicio, Senior Angular/TypeScript Engineer"
   },
   "experience": {
     "title": "Experience",
@@ -86,26 +88,28 @@
   "projects": {
     "title": "Projects",
     "featured": "Featured",
-    "freelanceWork": "Freelance Work",
-    "aiMath": {
-      "title": "AI Math Learning Platform",
-      "description": "Angular app integrating Claude/GPT APIs for adaptive math exercises with controlled LLM behavior. Feature-flagged AI for A/B study design \u2014 production-grade patterns including error handling, rate limiting, and response validation."
+    "freelanceWork": "Freelance",
+    "otherProjects": "Other Projects",
+    "clave": {
+      "title": "Clave de tu Ser",
+      "description": "Full-stack reservation platform for a numerology consultancy. Built with Next.js 14, Prisma ORM, and NextAuth for secure admin authentication. Features automated transactional emails via Resend, appointment CRUD with calendar integration, and a responsive client-facing booking flow."
     },
     "cgestiona": {
       "title": "C Gestiona",
-      "description": "React + Vite marketing site with Markdown blog, Decap CMS, and Netlify Functions."
+      "description": "Marketing site for an accounting consultancy. Built with React + Vite featuring a Markdown-powered blog, Decap CMS for content management, and Netlify Functions for form handling and serverless backend logic."
     },
-    "clave": {
-      "title": "Clave de tu Ser",
-      "description": "Next.js + Prisma reservation platform with NextAuth and transactional emails."
+    "aiMath": {
+      "title": "AI Math Learning Platform",
+      "description": "Angular app integrating Claude/GPT APIs for adaptive math exercises with controlled LLM behavior. Feature-flagged AI for A/B study design \u2014 production-grade patterns including error handling, rate limiting, and response validation."
     }
   },
   "contact": {
     "title": "Let\u2019s work together.",
+    "description": "Currently available for contract and full-time opportunities. Based in Brazil with full US/EU timezone overlap.",
     "email": "diego.remicio.dev@gmail.com"
   },
   "footer": {
-    "copyright": "\u00a9 2026 Diego Remicio \u00b7 Built with Next.js"
+    "copyright": "\u00a9 {year} Diego Remicio \u00b7 Built with Next.js"
   },
   "theme": {
     "light": "Switch to light mode",

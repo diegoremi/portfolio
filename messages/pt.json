@@ -11,7 +11,8 @@
     "contact": "Contato",
     "downloadCV": "Baixar CV",
     "openMenu": "Abrir menu",
-    "closeMenu": "Fechar menu"
+    "closeMenu": "Fechar menu",
+    "skipToContent": "Ir para o conte\u00fado"
   },
   "hero": {
     "name": "Diego Remicio",
@@ -28,7 +29,8 @@
     "title": "Sobre",
     "p1": "Sou um desenvolvedor Senior Angular/TypeScript com mais de 9 anos de experi\u00eancia em aplica\u00e7\u00f5es web de n\u00edvel empresarial. Trabalhei em plataformas de opera\u00e7\u00f5es de pilotos na United Airlines, ferramentas financeiras no JPMorgan e sistemas CRM no WeightWatchers \u2014 sempre focado em arquitetura de autentica\u00e7\u00e3o (OAuth/OIDC), performance de UI em escala e bibliotecas de componentes compartilhados para m\u00faltiplas equipes.",
     "p2": "Acelero entregas atrav\u00e9s de desenvolvimento assistido por IA (Claude Code, Cursor, Copilot), mantendo o julgamento arquitet\u00f4nico que ferramentas de IA n\u00e3o conseguem substituir. Meu projeto de tese integrou APIs de LLM em uma plataforma educacional com prompts controlados e feature flags para testes A/B.",
-    "p3": "Atualmente baseado em S\u00e3o Paulo, Brasil. Trilingue: espanhol (nativo), ingl\u00eas (avan\u00e7ado), portugu\u00eas (profissional)."
+    "p3": "Atualmente baseado em S\u00e3o Paulo, Brasil. Trilingue: espanhol (nativo), ingl\u00eas (avan\u00e7ado), portugu\u00eas (profissional).",
+    "photoAlt": "Diego Remicio, Desenvolvedor Senior Angular/TypeScript"
   },
   "experience": {
     "title": "Experi\u00eancia",
@@ -86,26 +88,28 @@
   "projects": {
     "title": "Projetos",
     "featured": "Destaque",
-    "freelanceWork": "Trabalho Freelance",
-    "aiMath": {
-      "title": "Plataforma de Aprendizado Matem\u00e1tico com IA",
-      "description": "Aplica\u00e7\u00e3o Angular integrando APIs da Claude/GPT para exerc\u00edcios matem\u00e1ticos adaptativos com comportamento LLM controlado. IA com feature flags para design de estudo A/B \u2014 padr\u00f5es de produ\u00e7\u00e3o incluindo tratamento de erros, rate limiting e valida\u00e7\u00e3o de respostas."
+    "freelanceWork": "Freelance",
+    "otherProjects": "Outros Projetos",
+    "clave": {
+      "title": "Clave de tu Ser",
+      "description": "Plataforma full-stack de reservas para uma consultoria de numerologia. Desenvolvida com Next.js 14, Prisma ORM e NextAuth para autentica\u00e7\u00e3o segura do admin. Inclui e-mails transacionais automatizados via Resend, CRUD de agendamentos com integra\u00e7\u00e3o de calend\u00e1rio e fluxo de reservas responsivo para o cliente."
     },
     "cgestiona": {
       "title": "C Gestiona",
-      "description": "Site de marketing React + Vite com blog Markdown, Decap CMS e Netlify Functions."
+      "description": "Site de marketing para uma consultoria cont\u00e1bil. Desenvolvido com React + Vite com blog baseado em Markdown, Decap CMS para gest\u00e3o de conte\u00fado e Netlify Functions para tratamento de formul\u00e1rios e l\u00f3gica serverless."
     },
-    "clave": {
-      "title": "Clave de tu Ser",
-      "description": "Plataforma de reservas Next.js + Prisma com NextAuth e e-mails transacionais."
+    "aiMath": {
+      "title": "Plataforma de Aprendizado Matem\u00e1tico com IA",
+      "description": "Aplica\u00e7\u00e3o Angular integrando APIs da Claude/GPT para exerc\u00edcios matem\u00e1ticos adaptativos com comportamento LLM controlado. IA com feature flags para design de estudo A/B \u2014 padr\u00f5es de produ\u00e7\u00e3o incluindo tratamento de erros, rate limiting e valida\u00e7\u00e3o de respostas."
     }
   },
   "contact": {
     "title": "Vamos trabalhar juntos.",
+    "description": "Dispon\u00edvel para oportunidades de contrato e tempo integral. Baseado no Brasil com sobreposi\u00e7\u00e3o de fuso hor\u00e1rio US/EU.",
     "email": "diego.remicio.dev@gmail.com"
   },
   "footer": {
-    "copyright": "\u00a9 2026 Diego Remicio \u00b7 Feito com Next.js"
+    "copyright": "\u00a9 {year} Diego Remicio \u00b7 Feito com Next.js"
   },
   "theme": {
     "light": "Mudar para modo claro",

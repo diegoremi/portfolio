@@ -1,63 +1,70 @@
 import { useTranslations, useLocale } from 'next-intl';
+import { LinkedInIcon, GithubIcon } from './Icons';
 
 export default function Hero() {
   const t = useTranslations('hero');
   const locale = useLocale();
   const cvFile = `/cv/Diego_Remicio_CV_${locale.toUpperCase()}.pdf`;
 
-  const cardIcon = locale === 'es' ? '\u{1F1EA}\u{1F1FA}' : locale === 'pt' ? '\u{1F1E7}\u{1F1F7}' : '\u{1F310}';
-
   return (
-    <section className="relative flex min-h-[calc(100vh-73px)] items-center justify-center overflow-hidden px-4 py-20">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--background)] via-[var(--background)] to-[var(--accent-faint)]" />
-
-      <div className="hero-stagger relative z-10 mx-auto max-w-3xl text-center">
-        <h1 className="text-5xl font-bold tracking-tight text-[var(--foreground)] sm:text-6xl md:text-7xl">
+    <section className="flex min-h-[calc(100vh-65px)] items-center px-6 py-20 sm:px-8">
+      <div className="hero-stagger mx-auto w-full max-w-4xl">
+        <h1 className="text-5xl font-bold tracking-tight text-[var(--foreground)] sm:text-7xl lg:text-8xl">
           {t('name')}
         </h1>
 
-        <p className="mt-4 text-xl text-[var(--muted)] sm:text-2xl">
+        <p className="mt-4 font-mono text-lg text-[var(--accent)] sm:text-xl">
           {t('title')}
         </p>
 
-        <p className="mt-4 text-base text-[var(--foreground)] sm:text-lg">
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
           {t('description')}
         </p>
 
-        <p className="mt-2 text-sm text-[var(--muted)]">
+        <p className="mt-5 font-mono text-xs text-[var(--muted)] sm:text-sm">
           {t('location')}
         </p>
-        <p className="mt-1 text-sm text-[var(--muted)]">
+
+        <p className="mt-1 font-mono text-xs text-[var(--muted)] sm:text-sm">
           {t('availability')}
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="#contact"
+            className="inline-flex items-center rounded-sm bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-[var(--accent-hover)]"
+          >
+            {t('getInTouch')}
+          </a>
           <a
             href={cvFile}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-lg border border-[var(--accent)] px-6 py-2.5 text-sm font-medium text-[var(--accent)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent)] hover:text-white hover:shadow-md active:translate-y-0 active:shadow-none"
+            className="inline-flex items-center rounded-sm border border-[var(--border)] px-5 py-2.5 text-sm font-medium text-[var(--muted)] transition-colors duration-200 hover:border-[var(--foreground)] hover:text-[var(--foreground)]"
           >
             {t('downloadCV')}
           </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center rounded-lg bg-[var(--accent)] px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] hover:shadow-md active:translate-y-0 active:shadow-none"
-          >
-            {t('getInTouch')}
-          </a>
         </div>
 
-        {/* Locale-specific info card */}
-        <div className="mx-auto mt-12 max-w-2xl rounded-lg border border-[var(--border)] bg-[var(--card)] p-4 text-left transition-colors duration-200 hover:border-[var(--accent)]/40">
-          <p className="text-sm font-semibold text-[var(--foreground)]">
-            <span className="mr-1.5">{cardIcon}</span>
-            {t('workAuthTitle')}
-          </p>
-          <p className="mt-1 text-sm leading-relaxed text-[var(--muted)]">
-            {t('workAuthText')}
-          </p>
+        <div className="mt-8 flex items-center gap-5">
+          <a
+            href="https://linkedin.com/in/diegoremicio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--muted)] transition-colors duration-200 hover:text-[var(--foreground)]"
+            aria-label="LinkedIn"
+          >
+            <LinkedInIcon />
+          </a>
+          <a
+            href="https://github.com/diegoremi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--muted)] transition-colors duration-200 hover:text-[var(--foreground)]"
+            aria-label="GitHub"
+          >
+            <GithubIcon />
+          </a>
         </div>
       </div>
     </section>

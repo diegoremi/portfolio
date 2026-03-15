@@ -11,7 +11,8 @@
     "contact": "Contacto",
     "downloadCV": "Descargar CV",
     "openMenu": "Abrir men\u00fa",
-    "closeMenu": "Cerrar men\u00fa"
+    "closeMenu": "Cerrar men\u00fa",
+    "skipToContent": "Ir al contenido"
   },
   "hero": {
     "name": "Diego Remicio",
@@ -28,7 +29,8 @@
     "title": "Sobre m\u00ed",
     "p1": "Soy un desarrollador Senior Angular/TypeScript con m\u00e1s de 9 a\u00f1os de experiencia en aplicaciones web de nivel empresarial. He trabajado en plataformas de operaciones de pilotos en United Airlines, herramientas financieras en JPMorgan y sistemas CRM en WeightWatchers, siempre centrado en arquitectura de autenticaci\u00f3n (OAuth/OIDC), rendimiento de UI a escala y bibliotecas de componentes compartidos para equipos m\u00faltiples.",
     "p2": "Acelero la entrega mediante desarrollo asistido por IA (Claude Code, Cursor, Copilot), manteniendo el criterio arquitect\u00f3nico que las herramientas de IA no pueden reemplazar. Mi proyecto de tesis integr\u00f3 APIs de LLM en una plataforma educativa con prompts controlados y gesti\u00f3n de funcionalidades A/B.",
-    "p3": "Actualmente radicado en S\u00e3o Paulo, Brasil. Trilingue: espa\u00f1ol (nativo), ingl\u00e9s (avanzado), portugu\u00e9s (profesional)."
+    "p3": "Actualmente radicado en S\u00e3o Paulo, Brasil. Trilingue: espa\u00f1ol (nativo), ingl\u00e9s (avanzado), portugu\u00e9s (profesional).",
+    "photoAlt": "Diego Remicio, Desarrollador Senior Angular/TypeScript"
   },
   "experience": {
     "title": "Experiencia",
@@ -86,26 +88,28 @@
   "projects": {
     "title": "Proyectos",
     "featured": "Destacado",
-    "freelanceWork": "Trabajo Freelance",
-    "aiMath": {
-      "title": "Plataforma de Aprendizaje Matem\u00e1tico con IA",
-      "description": "Aplicaci\u00f3n Angular integrando APIs de Claude/GPT para ejercicios matem\u00e1ticos adaptativos con comportamiento LLM controlado. IA con feature flags para dise\u00f1o de estudio A/B \u2014 patrones de producci\u00f3n incluyendo manejo de errores, rate limiting y validaci\u00f3n de respuestas."
+    "freelanceWork": "Freelance",
+    "otherProjects": "Otros Proyectos",
+    "clave": {
+      "title": "Clave de tu Ser",
+      "description": "Plataforma full-stack de reservas para una consultor\u00eda de numerolog\u00eda. Desarrollada con Next.js 14, Prisma ORM y NextAuth para autenticaci\u00f3n segura del admin. Incluye correos transaccionales automatizados v\u00eda Resend, CRUD de citas con integraci\u00f3n de calendario y flujo de reservas responsive para el cliente."
     },
     "cgestiona": {
       "title": "C Gestiona",
-      "description": "Sitio de marketing React + Vite con blog Markdown, Decap CMS y Netlify Functions."
+      "description": "Sitio de marketing para una consultor\u00eda contable. Desarrollado con React + Vite con blog basado en Markdown, Decap CMS para gesti\u00f3n de contenido y Netlify Functions para manejo de formularios y l\u00f3gica serverless."
     },
-    "clave": {
-      "title": "Clave de tu Ser",
-      "description": "Plataforma de reservas Next.js + Prisma con NextAuth y correos transaccionales."
+    "aiMath": {
+      "title": "Plataforma de Aprendizaje Matem\u00e1tico con IA",
+      "description": "Aplicaci\u00f3n Angular integrando APIs de Claude/GPT para ejercicios matem\u00e1ticos adaptativos con comportamiento LLM controlado. IA con feature flags para dise\u00f1o de estudio A/B \u2014 patrones de producci\u00f3n incluyendo manejo de errores, rate limiting y validaci\u00f3n de respuestas."
     }
   },
   "contact": {
     "title": "Trabajemos juntos.",
+    "description": "Disponible para oportunidades de contrato y tiempo completo. Radicado en Brasil con solapamiento horario US/EU.",
     "email": "diego.remicio.dev@gmail.com"
   },
   "footer": {
-    "copyright": "\u00a9 2026 Diego Remicio \u00b7 Hecho con Next.js"
+    "copyright": "\u00a9 {year} Diego Remicio \u00b7 Hecho con Next.js"
   },
   "theme": {
     "light": "Cambiar a modo claro",

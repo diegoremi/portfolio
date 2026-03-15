@@ -15,13 +15,13 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-1 text-sm" role="group" aria-label="Language">
+    <div className="flex items-center gap-1 font-mono text-xs" role="group" aria-label="Language">
       {locales.map((l, i) => (
         <span key={l} className="flex items-center">
-          {i > 0 && <span className="text-[var(--border)] mx-1">|</span>}
+          {i > 0 && <span className="mx-0.5 text-[var(--border)]">/</span>}
           <button
             onClick={() => switchLocale(l)}
-            className={`px-1 py-0.5 rounded transition-colors ${
+            className={`rounded px-2.5 py-2 transition-colors ${
               current === l
                 ? 'text-[var(--accent)] font-semibold'
                 : 'text-[var(--muted)] hover:text-[var(--foreground)]'

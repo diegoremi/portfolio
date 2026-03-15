@@ -6,38 +6,44 @@ export default function Experience() {
   const t = useTranslations('experience');
 
   return (
-    <section id="experience" className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-3xl">
-        <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+    <section id="experience" className="px-6 py-24 sm:px-8">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="flex items-baseline gap-2 text-2xl font-bold tracking-tight text-[var(--foreground)]">
+          <span className="font-mono text-base font-normal text-[var(--accent)]">02.</span>
           {t('title')}
         </h2>
 
-        <div className="relative mt-10">
-          {/* Timeline line */}
-          <div className="absolute left-0 top-0 hidden h-full w-px bg-[var(--border)] sm:block sm:left-[7px]" />
-
-          <div className="space-y-10">
-            {experiences.map((exp) => (
-              <div key={exp.id} className="relative sm:pl-8">
-                {/* Timeline dot */}
-                <div className="absolute left-0 top-1.5 hidden h-[15px] w-[15px] rounded-full border-2 border-[var(--accent)] bg-[var(--background)] sm:block transition-colors duration-200" />
-
-                <div>
-                  <h3 className="text-lg font-semibold text-[var(--foreground)]">
-                    {t(`${exp.id}.role`)}
-                  </h3>
-                  <p className="text-sm font-medium text-[var(--accent)]">
-                    {t(`${exp.id}.company`)}
-                  </p>
-                  <p className="mt-0.5 text-sm text-[var(--muted)]">
+        <div className="hover-dim mt-10 -mx-5 overflow-hidden">
+          {experiences.map((exp) => (
+            <div
+              key={exp.id}
+              className="rounded-lg px-5 py-5 transition-colors duration-200 hover:bg-[var(--surface)]"
+            >
+              <div className="sm:grid sm:grid-cols-[160px_1fr] sm:gap-4">
+                {/* Date & Location */}
+                <div className="mb-2 sm:mb-0 sm:pt-0.5">
+                  <p className="font-mono text-xs text-[var(--muted)]">
                     {t(`${exp.id}.date`)}
-                    {t(`${exp.id}.location`) && ` · ${t(`${exp.id}.location`)}`}
                   </p>
+                  {t(`${exp.id}.location`) && (
+                    <p className="font-mono text-xs text-[var(--muted)]">
+                      {t(`${exp.id}.location`)}
+                    </p>
+                  )}
+                </div>
 
-                  <ul className="mt-3 space-y-1.5">
+                {/* Content */}
+                <div>
+                  <h3 className="text-sm font-semibold leading-snug">
+                    <span className="text-[var(--foreground)]">{t(`${exp.id}.role`)}</span>
+                    <span className="text-[var(--muted)]"> · </span>
+                    <span className="text-[var(--accent)]">{t(`${exp.id}.company`)}</span>
+                  </h3>
+
+                  <ul className="mt-2.5 space-y-1.5">
                     {Array.from({ length: exp.bulletCount }, (_, i) => (
-                      <li key={i} className="flex gap-2 text-sm text-[var(--muted)]">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
+                      <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-[var(--muted)]">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--muted)] opacity-40" />
                         {t(`${exp.id}.bullet${i + 1}`)}
                       </li>
                     ))}
@@ -50,8 +56,8 @@ export default function Experience() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

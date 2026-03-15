@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { ThemeProvider } from 'next-themes';
 import { routing } from '@/i18n/routing';
+import { getTranslations as getT } from 'next-intl/server';
 import '../globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   const messages = await getMessages();
+  const tNav = await getT({ locale, namespace: 'nav' });
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -69,8 +71,14 @@ export default async function LocaleLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NextIntlClientProvider locale={locale} messages={messages}>
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-sm focus:bg-[var(--accent)] focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+            >
+              {tNav('skipToContent')}
+            </a>
             <Navbar />
-            <main>{children}</main>
+            <main id="main-content">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>

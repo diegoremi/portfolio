@@ -5,9 +5,9 @@ export default function TechPill({ name }: { name: string }) {
 
   return (
     <span
-      className={`inline-block rounded-full px-3 py-1 text-sm font-medium transition-all duration-150 hover:scale-105
+      className={`inline-block rounded-md px-2.5 py-1 font-mono text-[11px] font-medium leading-none
         ${isCore
-          ? 'bg-[var(--accent)] text-white text-[0.8125rem] font-semibold'
+          ? 'bg-[var(--core-bg)] text-[var(--core-text)]'
           : 'bg-[var(--pill-bg)] text-[var(--pill-text)]'
         }`}
     >
