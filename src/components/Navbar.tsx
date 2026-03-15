@@ -58,6 +58,9 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  // When hero is visible, clear active so no nav item is highlighted
+  const effectiveActive = pastHero ? active : '';
+
   const cvFile = `/cv/Diego_Remicio_CV_${locale.toUpperCase()}.pdf`;
 
   // Scroll to hash on initial page load
@@ -76,16 +79,27 @@ export default function Navbar() {
 
   // Update URL hash when active section changes via scroll
   useEffect(() => {
-    if (active) {
-      window.history.replaceState(null, '', `#${active}`);
+    if (effectiveActive) {
+      window.history.replaceState(null, '', `#${effectiveActive}`);
+    } else {
+      window.history.replaceState(null, '', window.location.pathname);
     }
-  }, [active]);
+  }, [effectiveActive]);
 
   function handleNav(e: React.MouseEvent, id: string) {
     e.preventDefault();
     setOpen(false);
     window.history.pushState(null, '', `#${id}`);
     document.getElementById(id)?.scrollIntoView({
+      behavior: prefersReducedMotion() ? 'instant' : 'smooth',
+    });
+  }
+
+  function scrollToHero() {
+    setOpen(false);
+    window.history.pushState(null, '', window.location.pathname);
+    window.scrollTo({
+      top: 0,
       behavior: prefersReducedMotion() ? 'instant' : 'smooth',
     });
   }
@@ -99,30 +113,28 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4 sm:px-8">
-        {/* Logo */}
+        {/* Logo — scrolls to hero */}
         <button
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: prefersReducedMotion() ? 'instant' : 'smooth',
-            });
-            setActive('');
-            window.history.replaceState(null, '', window.location.pathname);
-          }}
-          className="font-mono text-sm font-bold text-[var(--foreground)] tracking-tight transition-colors hover:text-[var(--accent)]"
+          onClick={scrollToHero}
+          className={`hidden md:block font-mono text-sm font-bold transition-colors duration-200 shrink-0 ${
+            !pastHero
+              ? 'text-[var(--accent)]'
+              : 'text-[var(--foreground)] hover:text-[var(--accent)]'
+          }`}
+          aria-label="Scroll to top"
         >
           DR.
         </button>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-5 lg:gap-7 md:flex">
+        <ul className="hidden items-center gap-1.5 lg:gap-3 shrink-0 md:flex">
           {sections.map((s, i) => (
             <li key={s}>
               <a
                 href={`#${s}`}
                 onClick={(e) => handleNav(e, s)}
                 className={`relative whitespace-nowrap text-sm transition-colors duration-200 ${
-                  active === s
+                  effectiveActive === s
                     ? 'text-[var(--accent)]'
                     : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                 }`}
@@ -135,12 +147,12 @@ export default function Navbar() {
         </ul>
 
         {/* Right side */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 shrink-0 whitespace-nowrap md:flex">
           <a
             href={cvFile}
             target="_blank"
             rel="noopener noreferrer"
-            className={`font-mono text-xs text-[var(--accent)] border border-[var(--accent)] rounded px-3 py-1.5 transition-all duration-300 hover:bg-[var(--accent)]/10 hover:shadow-[0_0_12px_rgba(59,130,246,0.15)] ${
+            className={`font-mono text-xs text-[var(--accent)] border border-[var(--accent)] rounded px-2.5 py-1.5 whitespace-nowrap transition-all duration-300 hover:bg-[var(--accent)]/10 hover:shadow-[0_0_12px_rgba(59,130,246,0.15)] ${
               pastHero
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 -translate-y-1 pointer-events-none'
@@ -156,6 +168,19 @@ export default function Navbar() {
           <LanguageSwitcher />
           <ThemeToggle />
         </div>
+
+        {/* Mobile logo */}
+        <button
+          onClick={scrollToHero}
+          className={`md:hidden font-mono text-sm font-bold transition-colors duration-200 ${
+            !pastHero
+              ? 'text-[var(--accent)]'
+              : 'text-[var(--foreground)] hover:text-[var(--accent)]'
+          }`}
+          aria-label="Scroll to top"
+        >
+          DR.
+        </button>
 
         {/* Mobile hamburger */}
         <div className="flex items-center gap-2 md:hidden">
@@ -196,7 +221,7 @@ export default function Navbar() {
                     href={`#${s}`}
                     onClick={(e) => handleNav(e, s)}
                     className={`block py-2 text-sm transition-colors ${
-                      active === s
+                      effectiveActive === s
                         ? 'text-[var(--accent)]'
                         : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                     }`}
