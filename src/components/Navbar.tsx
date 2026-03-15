@@ -115,13 +115,13 @@ export default function Navbar() {
         </button>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-5 lg:gap-7 md:flex">
           {sections.map((s, i) => (
             <li key={s}>
               <a
                 href={`#${s}`}
                 onClick={(e) => handleNav(e, s)}
-                className={`relative text-sm transition-colors duration-200 ${
+                className={`relative whitespace-nowrap text-sm transition-colors duration-200 ${
                   active === s
                     ? 'text-[var(--accent)]'
                     : 'text-[var(--muted)] hover:text-[var(--foreground)]'
