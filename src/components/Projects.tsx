@@ -27,7 +27,7 @@ export default function Projects() {
   const secondary = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="px-4 py-20 sm:px-6">
+    <section id="projects" className="px-4 py-24 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
           {t('title')}
@@ -42,7 +42,7 @@ export default function Projects() {
             {featured.map((p) => (
               <div
                 key={p.id}
-                className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 transition-colors hover:border-[var(--accent)]"
+                className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 transition-all duration-200 hover:border-[var(--accent)]/60 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <h4 className="text-lg font-semibold text-[var(--foreground)]">
                   {t(`${p.id}.title`)}
@@ -62,7 +62,7 @@ export default function Projects() {
                         href={p.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-sm text-[var(--accent)] transition-all duration-200 hover:text-[var(--accent-hover)] hover:-translate-y-px"
                         aria-label={`GitHub: ${t(`${p.id}.title`)}`}
                       >
                         <GithubIcon /> GitHub
@@ -73,7 +73,7 @@ export default function Projects() {
                         href={p.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-sm text-[var(--accent)] transition-all duration-200 hover:text-[var(--accent-hover)] hover:-translate-y-px"
                         aria-label={`Live: ${t(`${p.id}.title`)}`}
                       >
                         <ExternalLinkIcon /> Live
@@ -96,7 +96,7 @@ export default function Projects() {
               {secondary.map((p) => (
                 <div
                   key={p.id}
-                  className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-4 transition-colors hover:border-[var(--accent)]"
+                  className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-4 transition-all duration-200 hover:border-[var(--accent)]/60 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <h4 className="font-semibold text-[var(--foreground)]">
                     {t(`${p.id}.title`)}

@@ -29,42 +29,42 @@ export default function Contact() {
   const t = useTranslations('contact');
 
   return (
-    <section id="contact" className="px-4 py-20 sm:px-6">
+    <section id="contact" className="px-4 py-32 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+        <h2 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl">
           {t('title')}
         </h2>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
           <a
             href={`mailto:${t('email')}`}
-            className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+            className="inline-flex items-center gap-2.5 rounded-lg border border-[var(--border)] px-5 py-3 text-[var(--foreground)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)] hover:shadow-md active:translate-y-0"
             aria-label="Email"
           >
             <MailIcon />
-            <span className="text-sm">{t('email')}</span>
+            <span className="text-sm font-medium">{t('email')}</span>
           </a>
 
           <a
             href="https://linkedin.com/in/diegoremicio"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+            className="inline-flex items-center gap-2.5 rounded-lg border border-[var(--border)] px-5 py-3 text-[var(--foreground)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)] hover:shadow-md active:translate-y-0"
             aria-label="LinkedIn"
           >
             <LinkedInIcon />
-            <span className="text-sm">LinkedIn</span>
+            <span className="text-sm font-medium">LinkedIn</span>
           </a>
 
           <a
             href="https://github.com/diegoremi"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+            className="inline-flex items-center gap-2.5 rounded-lg border border-[var(--border)] px-5 py-3 text-[var(--foreground)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)] hover:shadow-md active:translate-y-0"
             aria-label="GitHub"
           >
             <GithubIcon />
-            <span className="text-sm">GitHub</span>
+            <span className="text-sm font-medium">GitHub</span>
           </a>
         </div>
       </div>

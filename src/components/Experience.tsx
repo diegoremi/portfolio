@@ -20,7 +20,7 @@ export default function Experience() {
             {experiences.map((exp) => (
               <div key={exp.id} className="relative sm:pl-8">
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-1.5 hidden h-[15px] w-[15px] rounded-full border-2 border-[var(--accent)] bg-[var(--background)] sm:block" />
+                <div className="absolute left-0 top-1.5 hidden h-[15px] w-[15px] rounded-full border-2 border-[var(--accent)] bg-[var(--background)] sm:block transition-colors duration-200" />
 
                 <div>
                   <h3 className="text-lg font-semibold text-[var(--foreground)]">
