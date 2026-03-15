@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@vercel/analytics/next';
 import { routing } from '@/i18n/routing';
 import { getTranslations as getT } from 'next-intl/server';
 import '../globals.css';
@@ -91,6 +92,7 @@ export default async function LocaleLayout({
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
